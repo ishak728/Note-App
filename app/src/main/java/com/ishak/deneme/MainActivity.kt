@@ -24,7 +24,6 @@ class MainActivity : AppCompatActivity() {
         noteList=ArrayList()
         noteAdapter=NoteAdapter(noteList)
         binding.recyclerView.layoutManager = LinearLayoutManager(this)
-       // binding.recyclerView.layoutManager=GridLayoutManager(this,100)             grid layoutManager nasıl kullanılır
         binding.recyclerView.adapter = noteAdapter
         try {
             val database=this.openOrCreateDatabase("NoteDb",Context.MODE_PRIVATE,null)
@@ -48,7 +47,7 @@ class MainActivity : AppCompatActivity() {
 
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        val menuInflater = menuInflater//getMenuInflater() ve menuInflater aynı şeydir
+        val menuInflater = menuInflater
         menuInflater.inflate(R.menu.add_note,menu)
         return super.onCreateOptionsMenu(menu)
     }
@@ -59,7 +58,7 @@ class MainActivity : AppCompatActivity() {
             val intent=Intent(this,DetailActivity::class.java)
             intent.putExtra("info",0)//yeni not eklenecek
             startActivity(intent)
-            //finish() eklesek daha iyi olmaz mı
+            
         }
 
         return super.onOptionsItemSelected(item)

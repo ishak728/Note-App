@@ -55,11 +55,11 @@ class DetailActivity : AppCompatActivity() {
         if(ContextCompat.checkSelfPermission(this, android.Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED){//izin verilmemiş
             if(ActivityCompat.shouldShowRequestPermissionRationale(this,android.Manifest.permission.READ_EXTERNAL_STORAGE)){
                 Snackbar.make(view,"permission needed for gallery",Snackbar.LENGTH_INDEFINITE).setAction("Please give permission",View.OnClickListener {
-                    permissionResultLaunchaer.launch(android.Manifest.permission.READ_EXTERNAL_STORAGE)//hocadan farklı yaptım ama yine de çalışıyor
+                    permissionResultLaunchaer.launch(android.Manifest.permission.READ_EXTERNAL_STORAGE)
                 }).show()
             }
             else{
-                permissionResultLaunchaer.launch(android.Manifest.permission.READ_EXTERNAL_STORAGE)//READ_EXTERNAL_STORAGE bunun için izin alınıyor
+                permissionResultLaunchaer.launch(android.Manifest.permission.READ_EXTERNAL_STORAGE)
             }
         }
         else{//izin verilmişse galeriye gider
@@ -162,13 +162,13 @@ class DetailActivity : AppCompatActivity() {
     fun delete(view: View){
         database.execSQL("DELETE FROM NoteTb WHERE id=$id")
         val intent = Intent(this,MainActivity::class.java)
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)//ne kadar açık aktivite varsa kapatılacak
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
         startActivity(intent)
     }
 
 
     fun registerLauncher(){
-        activityResultLauncher=registerForActivityResult(ActivityResultContracts.StartActivityForResult()){result ->//bu parametreyi hocadan farklı yazdım
+        activityResultLauncher=registerForActivityResult(ActivityResultContracts.StartActivityForResult()){result ->
             if(result.resultCode== RESULT_OK){
                 val getIntentFromResult=result.data
                 if (getIntentFromResult!=null){
@@ -197,7 +197,7 @@ class DetailActivity : AppCompatActivity() {
         val commentIx=cursor.getColumnIndex("comment")
         val imageIx=cursor.getColumnIndex("image")
         while (cursor.moveToNext()){
-            binding.topicEt.setText(cursor.getString(topicIx))//setText yerine text yazarken niye olmuyor./sanırım text'le metin alıyoruz setText'le metin yazdırıyoruz
+            binding.topicEt.setText(cursor.getString(topicIx))
             binding.commentEt.setText(cursor.getString(commentIx))
             val byteArray=cursor.getBlob(imageIx)
             val bitmap=BitmapFactory.decodeByteArray(byteArray,0,byteArray.size)
