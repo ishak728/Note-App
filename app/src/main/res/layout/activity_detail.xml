@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:onClick="exchange"
+    tools:context=".DetailActivity">
+
+    <EditText
+        android:id="@+id/commentEt"
+        android:layout_width="360dp"
+        android:layout_height="160dp"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+
+        android:hint="Enter"
+        android:inputType="textMultiLine"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="@+id/topicEt"
+        app:layout_constraintHorizontal_bias="0.394"
+        app:layout_constraintStart_toStartOf="@+id/topicEt"
+        app:layout_constraintTop_toBottomOf="@+id/topicEt" />
+
+    <EditText
+        android:id="@+id/topicEt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:ems="10"
+        android:hint="Topic"
+        android:inputType="textPersonName"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="@+id/imageView"
+        app:layout_constraintHorizontal_bias="0.483"
+        app:layout_constraintStart_toStartOf="@+id/imageView"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+    <Button
+        android:id="@+id/exchangebtn"
+        android:layout_width="130dp"
+        android:layout_height="67dp"
+        android:layout_margin="10dp"
+        android:onClick="exchange"
+        android:text="exchange"
+        app:layout_constraintBottom_toBottomOf="@+id/savebtn"
+        app:layout_constraintEnd_toStartOf="@+id/savebtn"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/savebtn" />
+
+    <Button
+        android:id="@+id/deletebtn"
+        android:layout_width="115dp"
+        android:layout_height="67dp"
+        android:onClick="delete"
+        android:text="delete"
+        app:layout_constraintBottom_toBottomOf="@+id/savebtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/savebtn"
+        app:layout_constraintTop_toTopOf="@+id/savebtn" />
+
+    <Button
+        android:id="@+id/savebtn"
+        android:layout_width="100dp"
+        android:layout_height="67dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="30dp"
+        android:onClick="save"
+        android:text="save"
+        app:layout_constraintEnd_toEndOf="@+id/commentEt"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="@+id/commentEt"
+        app:layout_constraintTop_toBottomOf="@+id/commentEt" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="114dp"
+        android:layout_height="75dp"
+        android:layout_marginTop="44dp"
+        android:onClick="selectImage"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.424"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/kenny" />
+</androidx.constraintlayout.widget.ConstraintLayout>
