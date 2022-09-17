@@ -58,9 +58,7 @@ class MainActivity : AppCompatActivity() {
             val intent=Intent(this,DetailActivity::class.java)
             intent.putExtra("info",0)//yeni not eklenecek
             startActivity(intent)
-            
         }
-
         return super.onOptionsItemSelected(item)
     }
 
