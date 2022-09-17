@@ -173,16 +173,15 @@ class DetailActivity : AppCompatActivity() {
                 val getIntentFromResult=result.data
                 if (getIntentFromResult!=null){
                     val imageDataUrı=getIntentFromResult.data
-                    selectedBitmap=MediaStore.Images.Media.getBitmap(this@DetailActivity.contentResolver,imageDataUrı)//bitmap'e çevriliyor
+                    selectedBitmap=MediaStore.Images.Media.getBitmap(this@DetailActivity.contentResolver,imageDataUrı)
                     binding.imageView.setImageBitmap(selectedBitmap)
                 }
             }
         }
         permissionResultLaunchaer=registerForActivityResult(ActivityResultContracts.RequestPermission()){result->
-            //yukarda permission.launch yapıldıktan sonra yes ve no durumuna göre result için belli bir değer döndürülyor ve bu kısıma giriyor direkt.
-            //yes ve no durumunda ne yapılacağını burada yazacaz
+
             if(result){
-                val intentToGalerry=Intent(Intent.ACTION_PICK,MediaStore.Images.Media.EXTERNAL_CONTENT_URI)//galeriye gidip uri'sini tutuyor ve intenttogalery'e atıyor
+                val intentToGalerry=Intent(Intent.ACTION_PICK,MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
                 activityResultLauncher.launch(intentToGalerry)
             }
             else{
